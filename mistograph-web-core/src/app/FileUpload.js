@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function App() {
-  const host = "https://mistograph-engine.vercel.app";
-//  const host = "http://127.0.0.1:8000";
+  const host = "https://mistograph-engine.vercel.app/";
+//   const host = "http://127.0.0.1:8000";
   const apiUrl = `${host}/api/trade-journals/analyze-win-percentage/`;
   const [selectedFile, setSelectedFile] = useState(null);
   const [winPercentage, setWinPercentage] = useState(null);
@@ -62,6 +62,13 @@ function App() {
           {winPercentage?.risk_reward != null && (
             <p>Risk Reward:{winPercentage?.risk_reward}</p>
           )}
+
+          <h2>Mean Profit By Day</h2>
+          <p>Monday. {winPercentage?.monday_mean_profit}</p>
+          <p>Tuesday. {winPercentage?.tuesday_mean_profit}</p>
+          <p>Wednesday. {winPercentage?.wednesday_mean_profit}</p>
+          <p>Thursday. {winPercentage?.thursday_mean_profit}</p>
+          <p>Friday. {winPercentage?.friday_mean_profit}</p>
         </p>
       )}
     </div>
