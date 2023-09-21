@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function App() {
-//   const host = "https://mistograph-engine.vercel.app";
- const host = "http://127.0.0.1:8000";
+  const host = "https://mistograph-engine.vercel.app";
+//  const host = "http://127.0.0.1:8000";
   const apiUrl = `${host}/api/trade-journals/analyze-win-percentage/`;
   const [selectedFile, setSelectedFile] = useState(null);
   const [winPercentage, setWinPercentage] = useState(null);
