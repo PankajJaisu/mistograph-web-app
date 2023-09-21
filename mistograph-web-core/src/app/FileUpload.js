@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function App() {
-  const url = "https://mistograph-engine.vercel.app";
-
-  const apiUrl = `${url}/api/trade-journals/analyze-win-percentage/`;
-//const apiUrl = "http://127.0.0.1:8000/api/trade-journals/analyze-win-percentage/";
+//   const host = "https://mistograph-engine.vercel.app";
+ const host = "http://127.0.0.1:8000";
+  const apiUrl = `${host}/api/trade-journals/analyze-win-percentage/`;
   const [selectedFile, setSelectedFile] = useState(null);
   const [winPercentage, setWinPercentage] = useState(null);
 
@@ -26,7 +25,7 @@ function App() {
         })
         .then((response) => {
           // Handle the response as needed
-          console.log(response.data)
+          console.log(response.data);
           setWinPercentage(response.data.data);
         })
         .catch((error) => {
@@ -52,8 +51,16 @@ function App() {
           <p>Win Percentage: {winPercentage?.win_percentage}</p>
           <p>Most Profitable Pair: {winPercentage?.most_profitable_pair}</p>
           <p>Most Profitable Day: {winPercentage?.most_profitable_day}</p>
-          {winPercentage?.risk_reward!=null &&(
-           <p>Risk Reward:{winPercentage?.risk_reward}</p>
+          <p>
+            Most Profitable Session: {winPercentage?.most_profitable_session}{" "}
+          </p>
+          <p>London Session profit: {winPercentage?.london_session_profit} </p>
+          <p>
+            New York Session profit: {winPercentage?.new_york_session_profit}{" "}
+          </p>
+
+          {winPercentage?.risk_reward != null && (
+            <p>Risk Reward:{winPercentage?.risk_reward}</p>
           )}
         </p>
       )}
